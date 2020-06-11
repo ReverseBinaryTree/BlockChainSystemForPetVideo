@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <title>宠物视频网站用户管理系统</title>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!--enable mobile device-->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!--fontawesome css-->
+      <link rel="stylesheet" href="css/font-awesome.min.css">
+      <!--bootstrap css-->
+      <link rel="stylesheet" href="css/bootstrap.min.css">
+      <!--animate css-->
+      <link rel="stylesheet" href="css/animate-wow.css">
+      <!--main css-->
+      <link rel="stylesheet" href="css/style.css">
+      <link rel="stylesheet" href="css/bootstrap-select.min.css">
+      <link rel="stylesheet" href="css/slick.min.css">
+      <!--responsive css-->
+      <link rel="stylesheet" href="css/responsive.css">
+   </head>
+   <body>
+      <header id="header" class="top-head">
+         <!-- Static navbar -->
+         <nav class="navbar navbar-default">
+            <div class="container-fluid">
+               <div class="row">
+                  <div class="col-md-4 col-sm-12 left-rs">
+                     <div class="navbar-header">
+                        <button type="button" id="top-menu" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"> 
+                        <span class="sr-only">Toggle navigation</span> 
+                        <span class="icon-bar"></span> 
+                        <span class="icon-bar"></span> 
+                        <span class="icon-bar"></span> 
+                        </button>
+
+                     </div>
+                     <form class="navbar-form navbar-left web-sh">
+                        <div class="form">
+                           <input type="text" class="form-control" placeholder="搜索你想要的宠物视频版权">
+                        </div>
+                     </form>
+                  </div>
+                  <div class="col-md-8 col-sm-12">
+                     <div class="right-nav">
+                        <div class="login-sr">
+                           <div class="login-signup">
+                              <ul>
+                                 <li><a class="custom-a" href="transactions.html">我的交易</a></li>
+                                 <li><a class="custom-b" href="account.html">我的信息</a></li>
+                              </ul>
+                           </div>
+                        </div>
+
+                        <div class="nav-b hidden-xs">
+                           <div class="nav-box">
+                              <ul>
+                                 <li><a href="howitworks.html">使用说明</a></li>
+                                 <li><a href="copyright_info.html">我的视频</a></li>
+                              </ul>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- Modal -->
+                  <!--<div class="modal fade lug" id="Login" role="dialog">
+                     <div class="modal-dialog">
+                        &lt;!&ndash; Modal content&ndash;&gt;
+                        <div class="modal-content">
+                           <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                              <h4 class="modal-title">请输入您的密钥</h4>
+                           </div>
+                           <div class="modal-body">
+
+
+                                  <input type="password" id="input_private_key" placeholder="输入密钥"/> <br>
+                              <button type="button" class="submit" id="login_button"> 登陆 </button>
+                           </div>
+                        </div>
+                     </div>-->
+                  </div>
+               </div>
+            </div>
+            <!--/.container-fluid --> 
+         </nav>
+      </header>
+
+      <div id="sidebar" class="top-nav">
+         <ul id="sidebar-nav" class="sidebar-nav">
+            <li><a href="#">Help</a></li>
+            <li><a href="howitworks.html">How it works</a></li>
+            <li><a href="#">chamb for Business</a></li>
+         </ul>
+      </div>
+      <div class="page-content-product">
+         <div class="main-product">
+            <div class="container">
+               <div class="row clearfix">
+                  <div class="find-box">
+                     <h1><span id="welcome_message">欢迎回来<br>用户<span id="user_name_text"></span></span></h1>
+                  </div>
+               </div>
+               <div class="row clearfix">
+                  <div class="col-lg-3 col-sm-6 col-md-3">
+                     <a href="https://baike.baidu.com/item/%E7%BE%8E%E5%9B%BD%E7%9F%AD%E6%AF%9B%E7%8C%AB/300902?fr=aladdin">
+                        <div class="box-img">
+                           <h4>美短</h4>
+                           <img src="images/pets/01.png" alt="" />
+                        </div>
+                     </a>
+                  </div>
+                  <div class="col-lg-3 col-sm-6 col-md-3">
+                     <a href="https://baike.baidu.com/item/%E8%8B%B1%E5%9B%BD%E7%9F%AD%E6%AF%9B%E7%8C%AB">
+                        <div class="box-img">
+                           <h4>英短</h4>
+                           <img src="images/pets/02.jpg" alt="" />
+                        </div>
+                     </a>
+                  </div>
+                  <div class="col-lg-3 col-sm-6 col-md-3">
+                     <a href="https://baike.baidu.com/item/%E9%87%91%E6%AF%9B%E5%AF%BB%E5%9B%9E%E7%8A%AC/1955498?fromtitle=%E9%87%91%E6%AF%9B&fromid=303188&fr=aladdin">
+                        <div class="box-img">
+                           <h4>金毛</h4>
+                           <img src="images/pets/03.jpg" alt="" />
+                        </div>
+                     </a>
+                  </div>
+                  <div class="col-lg-3 col-sm-6 col-md-3">
+                     <a href="https://baike.baidu.com/item/%E8%A5%BF%E4%BC%AF%E5%88%A9%E4%BA%9A%E9%9B%AA%E6%A9%87%E7%8A%AC?fromtitle=%E5%93%88%E5%A3%AB%E5%A5%87&fromid=123197">
+                        <div class="box-img">
+                           <h4>哈士奇</h4>
+                           <img src="images/pets/04.jpg" alt="" />
+                        </div>
+                     </a>
+                  </div>
+                  <div class="col-lg-3 col-sm-6 col-md-3">
+                     <a href="https://baike.baidu.com/item/%E7%BE%8E%E6%B4%B2%E7%8B%AE/43282">
+                        <div class="box-img">
+                           <h4>美洲狮梅西</h4>
+                           <img src="images/pets/05.jpg" alt="" />
+                        </div>
+                     </a>
+                  </div>
+                  <div class="col-lg-3 col-sm-6 col-md-3">
+                     <a href="https://baike.baidu.com/item/%E6%9B%BC%E8%B5%A4%E8%82%AF%E7%8C%AB">
+                        <div class="box-img">
+                           <h4>曼赤肯猫</h4>
+                           <img src="images/pets/06.jpg" alt="" />
+                        </div>
+                     </a>
+                  </div>
+                  <div class="col-lg-3 col-sm-6 col-md-3">
+                     <a href="https://baike.baidu.com/item/%E8%90%A8%E6%91%A9%E8%80%B6%E7%8A%AC/6397?fromtitle=%E8%90%A8%E6%91%A9%E8%80%B6&fromid=123391">
+                        <div class="box-img">
+                           <h4>萨摩耶</h4>
+                           <img src="images/pets/07.jpg" alt="" />
+                        </div>
+                     </a>
+                  </div>
+                  <div class="col-lg-3 col-sm-6 col-md-3">
+                     <a href="https://baike.baidu.com/item/%E8%B4%B5%E5%AE%BE%E7%8A%AC/787021?fromtitle=%E6%B3%B0%E8%BF%AA&fromid=12798736">
+                        <div class="box-img">
+                           <h4>泰迪</h4>
+                           <img src="images/pets/08.jpg" alt="" />
+                        </div>
+                     </a>
+                  </div>
+                  <div class="categories_link">
+                     <a href="market.html">查看市场上售卖的所有视频版权</a>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+
+
+      <!--main js--> 
+      <script src="js/jquery-1.12.4.min.js"></script> 
+      <!--bootstrap js--> 
+      <script src="js/bootstrap.min.js"></script> 
+      <script src="js/bootstrap-select.min.js"></script>
+      <script src="js/slick.min.js"></script> 
+      <script src="js/wow.min.js"></script>
+      <!--custom js--> 
+      <script src="js/custom.js"></script>
+   <!-- getUserName.js-->
+   <script type="text/javascript">
+      $.ajax({
+         url:"/get_index_user_name",
+         contentType:"application/json",
+         dataType:'json',
+         type:"post",
+         data:JSON.stringify({}),
+         success:function(result){
+            let info = result["info"];
+            $("#user_name_text").text(info.name);
+            console.log(result);
+         }
+      })
+   </script>
+   </body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>宠物视频网站用户管理系统</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--enable mobile device-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--fontawesome css-->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <!--bootstrap css-->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!--animate css-->
+    <link rel="stylesheet" href="css/animate-wow.css">
+    <!--main css-->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="css/slick.min.css">
+    <!--responsive css-->
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+<header id="header" class="top-head">
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-4 col-sm-12 left-rs">
+                    <div class="navbar-header">
+                        <button type="button" id="top-menu" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+
+                    </div>
+                    <form class="navbar-form navbar-left web-sh">
+                        <div class="form">
+                            <input type="text" class="form-control" placeholder="搜索你想要的宠物视频版权">
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-8 col-sm-12">
+                    <div class="right-nav">
+                        <div class="login-sr">
+                            <div class="login-signup">
+
+                            </div>
+                        </div>
+
+                        <div class="nav-b hidden-xs">
+                            <div class="nav-box">
+                                <ul>
+                                    <li><a href="howitworks.html">使用说明</a></li>
+                                    <li><a href="copyright_info.html">我的视频</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade lug" id="Login" role="dialog">
+                    <div class="modal-dialog">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">请输入您的密钥</h4>
+                            </div>
+                            <div class="modal-body">
+
+
+                                <input type="password" id="input_private_key" placeholder="输入密钥"/> <br>
+                                <button type="button" class="submit" id="login_button" onclick="location.href='index.html'"> 登陆 </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade lug" id="Signup" role="dialog">
+                    <div class="modal-dialog">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">请输入您的电话号码</h4>
+                            </div>
+                            <div class="modal-body">
+
+
+                                <input type="password" id="input_phone_number" placeholder="输入电话号码"/> <br>
+                                <button type="button" class="submit" id="signup_button" onclick="location.href='signupsuccess.html'"> 注册 </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <!--/.container-fluid -->
+    </nav>
+</header>
+
+<div id="sidebar" class="top-nav">
+    <ul id="sidebar-nav" class="sidebar-nav">
+        <li><a href="#">Help</a></li>
+        <li><a href="howitworks.html">How it works</a></li>
+        <li><a href="#">chamb for Business</a></li>
+    </ul>
+</div>
+<div class="page-content-product">
+    <div class="main-product">
+        <div class="container">
+            <div class="row clearfix">
+                <div class="find-box">
+                    <h1>注册成功！<br><br></h1>
+                    <div style="font-size: 20px;color: #fdfdfe;margin-left: -400px">
+                        用户地址：<span id="user_address"></span><br>
+                        用户公钥:<span id="user_public_key"></span>
+                        <br>
+                        用户私钥:<span id="user_private_key"></span>
+                        <br>
+                    </div>
+
+
+                </div>
+            </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+<!--main js-->
+<script src="js/jquery-1.12.4.min.js"></script>
+<!--bootstrap js-->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrap-select.min.js"></script>
+<script src="js/slick.min.js"></script>
+<script src="js/wow.min.js"></script>
+<!--custom js-->
+<script src="js/custom.js"></script>
+<script type="text/javascript">
+$.ajax({
+    url:"/sign_up",
+    contentType:"application/json",
+    type:"post",
+    dataType:"json",
+    data:JSON.stringify({}),
+    success:function(result){
+        $("#user_address").text(result.address);
+        $("#user_private_key").text(result.private_key);
+        $("#user_public_key").text(result.public_key);
+        console.log(result);
+    },
+    error:function(){
+        console.log();
+    }
+})
+</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+encrypt-type: # 0:standard, 1:guomi
+  encrypt-type: 0
+
+group-channel-connections-config:
+  caCert: classpath:ca.crt
+  sslCert: classpath:sdk.crt
+  sslKey: classpath:sdk.key
+  all-channel-connections:
+    - group-id: 1 #group ID
+      connections-str:
+        - 127.0.0.1:20200 # node listen_ip:channel_listen_port
+        - 127.0.0.1:20201
+    - group-id: 2
+      connections-str:
+        - 127.0.0.1:20202 # node listen_ip:channel_listen_port
+        - 127.0.0.1:20203
+
+channel-service:
+  group-id: 1 # The specified group to which the SDK connects
+  agency-name: fisco # agency name
+
+accounts:
+  pem-file: 0xcdcce60801c0a2e6bb534322c32ae528b9dec8d2.pem
+  p12-file: 0x98333491efac02f8ce109b0c499074d47e7779a6.p12
+  password: 123456
+
+user-key:
+  user-key: 9b0b7de664abdeff59771047cda1e50a62bc9d3ecd017f31fcb4f7a93e8ae43c
+
+contractAddr:
+  account-contract-address: "0x07cf26c754888d6acbffc9c61ac1eb29ef91c66f"
+  copyright-contract-address: "0x9e5178979138326b632786268a56e218a86459e8"
+  transaction-contract-address: "0x04eedce962894241cd5797931ce577ab61215f15"
+  market-contract-address: "0x936953f9462804529dfc02418b5356be32f7d89e"
+
+Test-keys:
+  user1: 9b0b7de664abdeff59771047cda1e50a62bc9d3ecd017f31fcb4f7a93e8ae43c
+  user2: c4b59a5b613ed4167ecb4d557027ad63221ba17ed436eef1e655212672af11ac
+  user3: c2db03860692b088a623c3405fcb58a7c164557c5f9cc739df09e606bb87b495
+
+
+spring:
+  resources:
+    static-locations: classpath:Front/

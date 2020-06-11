@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chamb - Responsive E-commerce HTML5 Template</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--enable mobile device-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--fontawesome css-->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <!--bootstrap css-->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!--animate css-->
+    <link rel="stylesheet" href="css/animate-wow.css">
+    <!--main css-->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="css/slick.min.css">
+    <link rel="stylesheet" href="css/select2.min.css">
+    <!--responsive css-->
+    <link rel="stylesheet" href="css/responsive.css">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/perfect-scrollbar/perfect-scrollbar.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="css/util.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <!--===============================================================================================-->
+
+</head>
+<body>
+<header id="header" class="top-head">
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-4 col-sm-12 left-rs">
+                    <div class="navbar-header">
+                        <button type="button" id="top-menu" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+
+                    </div>
+
+                </div>
+                <div class="col-md-8 col-sm-12">
+                    <div class="right-nav">
+
+
+                        <div class="nav-b hidden-xs">
+                            <div class="nav-box">
+                                <ul>
+                                    <li><a href="howitworks.html">使用说明</a></li>
+                                    <li><a href="index.html">返回首页</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/.container-fluid -->
+    </nav>
+</header>
+<div class="limiter">
+    <div class="container-table100">
+        <div class="wrap-table100">
+            <div class="table100">
+                <table>
+                    <thead>
+                    <tr class="table100-head">
+                        <th class="column1">上传日期</th>
+                        <th class="column2">视频ID</th>
+                        <th class="column3">视频tag</th>
+                        <th class="column4">价格</th>
+                        <th class="column5">视频持有者</th>
+                        <th class="column6">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody id = "market_body">
+<!--                    <tr>-->
+<!--                        <td class="column1">2020-05-02 01:56</td>-->
+<!--                        <td class="column2">0x601e15c60a12a68ba6850b768dce9870f1488413</td>-->
+<!--                        <td class="column3">goldenhair</td>-->
+<!--                        <td class="column4">-$999.00</td>-->
+<!--                        <td class="column5">13a0b3467f</td>-->
+<!--                        <td class="column6"><button class="btn btn-success" onclick="location.href='index.html'">购买</button></td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td class="column1">2017-09-28 05:57</td>-->
+<!--                        <td class="column2">0x601e15c60a12a68ba6850b768dce9870f1488413</td>-->
+<!--                        <td class="column3">bluecat</td>-->
+<!--                        <td class="column4">-$756.00</td>-->
+<!--                        <td class="column5">15a0b34dc5</td>-->
+<!--                        <td class="column6"><button class="btn btn-success" onclick="location.href='index.html'">购买</button></td>-->
+<!--                    </tr>-->
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--main js-->
+<script src="js/jquery-1.12.4.min.js"></script>
+<!--bootstrap js-->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrap-select.min.js"></script>
+<script src="js/slick.min.js"></script>
+<script src="js/select2.full.min.js"></script>
+<script src="js/wow.min.js"></script>
+<!--custom js-->
+<script src="js/custom.js"></script>
+<script type="text/javascript">
+    $.ajax({
+        url:"/get_copyrights_on_sale",
+        contentType:"application/json",
+        dataType:'json',
+        type:'post',
+        async:true,
+        data:JSON.stringify({}),
+        success:function(result){
+            console.log(result);
+            let copyrightsArr = result["copyrights_on_sale"];
+            loadMarket(copyrightsArr);
+        },
+        error:function(result){ console.log(result);}
+
+    });
+    function loadMarket(copyrightsArr){
+        let rowNum=15;
+        for(let i=0;i<copyrightsArr.length;i++){
+            let cop_id = copyrightsArr[i].copyrightId;
+            let cop_tag = copyrightsArr[i].tag;
+            let cop_date = copyrightsArr[i].date;
+            let price = copyrightsArr[i].price;
+            let owner = copyrightsArr[i].owner;
+            let rowBody = $("#market_body");
+            let row = $("<tr></tr>");
+            let date_row= $("<td class='column1'>"+cop_date+"</td>");
+            let id_row= $("<td class='column2'>"+cop_id+"</td>");
+            let tag_row= $("<td class='column3'>"+cop_tag+"</td>");
+            let price_row= $("<td class='column4'>"+price+"</td>");
+            let owner_row= $("<td class='column5'>"+owner+"</td>");
+            let button_row=$("<td class='column6'></td>");
+            let purchase_button = $("<button class=\"btn btn-success\" style='font-size:20px;'>购买</button>");
+            button_row.append(purchase_button);
+
+            purchase_button.click(function(){
+                $.ajax({
+                    url:"/buy_copyright",
+                    contentType:"application/json",
+                    dataType:'json',
+                    type:'post',
+                    async:true,
+                    data:JSON.stringify({"cop_id":cop_id}),
+                    success: function(result){
+                        if(result["status"]=="ok"){
+                            location.reload();
+                            alert("购买成功！");
+                        }
+                        else {
+                            alert("余额不足！");
+                        }
+                        console.log(result);
+                    },
+                    error:function(result){
+                        console.log(result);
+                    }
+                });
+
+            });
+            row.append(date_row,id_row,tag_row,price_row,owner_row,button_row);
+            rowBody.append(row);
+        }
+
+    }
+</script>
+</body>
+</html>

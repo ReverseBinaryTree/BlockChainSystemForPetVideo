@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <title>Chamb - Responsive E-commerce HTML5 Template</title>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!--enable mobile device-->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!--fontawesome css-->
+      <link rel="stylesheet" href="css/font-awesome.min.css">
+      <!--bootstrap css-->
+      <link rel="stylesheet" href="css/bootstrap.min.css">
+      <!--animate css-->
+      <link rel="stylesheet" href="css/animate-wow.css">
+      <!--main css-->
+      <link rel="stylesheet" href="css/style.css">
+      <link rel="stylesheet" href="css/bootstrap-select.min.css">
+      <link rel="stylesheet" href="css/slick.min.css">
+      <link rel="stylesheet" href="css/select2.min.css">
+      <!--responsive css-->
+      <link rel="stylesheet" href="css/responsive.css">
+      <!--===============================================================================================-->
+      <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+      <!--===============================================================================================-->
+      <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+      <!--===============================================================================================-->
+      <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+      <!--===============================================================================================-->
+      <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+      <!--===============================================================================================-->
+      <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+      <!--===============================================================================================-->
+      <link rel="stylesheet" type="text/css" href="vendor/perfect-scrollbar/perfect-scrollbar.css">
+      <!--===============================================================================================-->
+      <link rel="stylesheet" type="text/css" href="css/util.css">
+      <link rel="stylesheet" type="text/css" href="css/main.css">
+      <!--===============================================================================================-->
+
+   </head>
+   <body>
+      <header id="header" class="top-head">
+      <!-- Static navbar -->
+      <nav class="navbar navbar-default">
+         <div class="container-fluid">
+            <div class="row">
+               <div class="col-md-4 col-sm-12 left-rs">
+                  <div class="navbar-header">
+                     <button type="button" id="top-menu" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                     </button>
+
+                  </div>
+
+               </div>
+               <div class="col-md-8 col-sm-12">
+                  <div class="right-nav">
+
+
+                     <div class="nav-b hidden-xs">
+                        <div class="nav-box">
+                           <ul>
+                              <li><a href="howitworks.html">使用说明</a></li>
+                              <li><a href="index.html">返回首页</a></li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!--/.container-fluid -->
+      </nav>
+   </header>
+      <div class="limiter">
+         <div class="container-table100">
+            <div class="wrap-table100">
+               <div style="text-align:right ">
+                  <button class="btn btn-dark" onclick="" style="font-size: 20px;margin-bottom: 20px;border-radius:15px;"data-toggle="modal" data-target="#up_copy">上传视频版权</button>
+               </div>
+               <div class="table100">
+                  <table>
+                     <thead>
+                     <tr class="table100-head">
+                        <th class="column1">上传日期</th>
+                        <th class="column2">视频ID</th>
+                        <th class="column3">视频tag</th>
+                        <th class="column4">持有者</th>
+                        <th class="column5">视频序号</th>
+                        <th class="column6">操作</th>
+                     </tr>
+                     </thead>
+                     <tbody id="copyrights_body">
+<!--                     <tr>-->
+<!--                        <td class="column1">2020-05-02 01:22</td>-->
+<!--                        <td class="column2">0x601e15c60a12a68ba6850b768dce9870f1488413</td>-->
+<!--                        <td class="column3">goldenhair</td>-->
+<!--                        <td class="column4">13a0b3467f</td>-->
+<!--                        <td class="column5">1</td>-->
+<!--                        <td class="column6"><button class="btn btn-success" onclick="location.href='index.html'">上架</button> <button type="button" class="btn btn-info">下架</button></td>-->
+<!--                     </tr>-->
+<!--                     <tr>-->
+<!--                        <td class="column1">2020-05-02 05:57</td>-->
+<!--                        <td class="column2">0x601e15c60a12a68ba6850b768dce9870f1488413</td>-->
+<!--                        <td class="column3">bluecat</td>-->
+<!--                        <td class="column4">15a0b34dc5</td>-->
+<!--                        <td class="column5">2</td>-->
+<!--                        <td class="column6"><button class="btn btn-success" onclick="location.href='index.html'">上架</button> <button type="button" class="btn btn-info">下架</button></td>-->
+<!--                     </tr>-->
+
+
+                     </tbody>
+                  </table>
+               </div>
+            </div>
+         </div>
+         <div class="modal fade lug" id="up_copy" role="dialog">
+            <div class="modal-dialog">
+               <!-- Modal content-->
+               <div class="modal-content">
+                  <div class="modal-header">
+                     <h4 class="modal-title">请输入您要上传的视频的tag和hashcode</h4>
+                     <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+                  <div class="modal-body">
+
+                     <input type="text" id="input_tag" placeholder="输入tag" style="font-size: 20px;"/> <br>
+                     <input type="text" id="input_hashcode" placeholder="输入hashcode"style="font-size: 20px;"/> <br>
+                     <button type="button" class="btn btn-dark" id="upload_copyright_button" style="font-size: 20px;"> 上 链 </button>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="modal fade" id="pushModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+               <div class="modal-content">
+                  <div class="modal-header">
+                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                     </button>
+                     <h4 class="modal-title" id="myModalLabel" style="font-size: 20px;">
+                        请输入您的售价
+                     </h4>
+                  </div>
+                  <div class="modal-body">
+                     <input type="text" id="pushPrice" placeholder="输入您的售价" style="font-size: 20px;"/>
+                  </div>
+                  <div class="modal-footer">
+                     <button type="button" class="btn btn-default" data-dismiss="modal" style="font-size: 20px;">关闭
+                     </button>
+                     <button type="button" class="btn btn-primary" id="pushBtn" style="font-size: 20px;">
+                        上架
+                     </button>
+                  </div>
+               </div><!-- /.modal-content -->
+            </div><!-- /.modal -->
+         </div>
+      </div>
+
+
+
+      <!--main js--> 
+      <script src="js/jquery-1.12.4.min.js"></script> 
+      <!--bootstrap js--> 
+      <script src="js/bootstrap.min.js"></script> 
+      <script src="js/bootstrap-select.min.js"></script>
+      <script src="js/slick.min.js"></script> 
+      <script src="js/select2.full.min.js"></script> 
+      <script src="js/wow.min.js"></script> 
+      <!--custom js--> 
+      <script src="js/custom.js"></script>
+      <script type="text/javascript">
+         $("#upload_copyright_button").click(function(){
+            $.ajax({
+               url:"/upload_copyright",
+               contentType:"application/json",
+               type:"post",
+               dataType:"json",
+               data:JSON.stringify({
+                  "tag":$("#input_tag").val(),
+                  "hash":$("#input_hashcode").val()
+               }),
+               success: function(result){
+                  if(result["status"]=="ok") {
+                     location.reload();
+                     alert("上链成功");
+                     console.log(result);
+                  }
+                  console.log(result);
+               },
+               error:function(result){
+                  console.log(result);
+               }
+            })
+         });
+      </script>
+      <script type="text/javascript">
+         $.ajax({
+            async:true,
+            url:"/get_account_info",
+            type:"post",
+            data:JSON.stringify({}),
+            dataType:"json",
+            contentType:"application/json",
+            success:function(result){
+               console.log(result);
+               let info = result["info"];
+               let copyrightsId = info["copyrightsId"];
+               loadCopyrights(copyrightsId);
+               console.log("------------------------load  complete--------------------------");
+            },
+            error: function(result){
+               console.log(result);
+            }
+         });
+         var loadCount = 1;
+         function loadCopyrights(copyrightsId){
+            let rowNum = 15;
+            for(var i=0;i<copyrightsId.length;i++){
+               $.ajax({
+                  async:false,
+                  url:"/get_copyright_info",
+                  type:"post",
+                  data:JSON.stringify({"cop_id": copyrightsId[i]}),
+                  dataType:"json",
+                  contentType:"application/json",
+                  success: function(result){
+                     let number = loadCount;
+                     let info = result["info"];
+                     let copId = info.copyrightId;
+                     let copPrice= info.price;
+                     let tag=info.tag;
+                     let date=info.date;
+                     let owner=info.owner;
+                     let isOnSale=info.onSale;
+                     console.log(info);
+                     let copBody=$("#copyrights_body");
+                     let row = $("<tr></tr>");
+                     var copIdCol=$("<td class='column2'>"+copId.substr(0,16)+"...</td>");
+                     var dateCol=$("<td class='column1'>"+date+"</td>");
+                     var tagCol=$("<td class='column3'>"+tag+"</td>");
+                     var ownerCol=$("<td class='column4'>"+owner.substr(0,16)+"</td>");
+                     var numberCol=$("<td class='column5'>"+number+"</td>");
+                     var buttonCol=$("<td class='column6'></td>");
+                     console.log("isOnSale is "+isOnSale);
+                     if(isOnSale){
+                        buttonCol.data("copId",copId);
+                        var downBtn = $("<button class=\"btn btn-success\" style='font-size: 20px'>下架</button>")
+                        buttonCol.append(downBtn);
+
+                        downBtn.click(function(){
+                           let cop_id = $(this).parent().data("copId");
+                           $.ajax({
+                              async:true,
+                              url:"/pull_copyright",
+                              type:"post",
+                              data:JSON.stringify({"cop_id": cop_id}),
+                              dataType:"json",
+                              contentType:"application/json",
+                              success:function(result){
+                                 if(result["status"]=="ok"){
+                                    location.reload();
+                                    alert("下架成功");
+                                 }
+                              },
+                              error:function(result){
+                                 console.log(result);
+                              }
+                           });
+                        })
+                     }
+                     else{
+                        buttonCol.data("copId",copId);
+                        var upBtn = $("<button class=\"btn btn-success\"data-toggle=\"modal\" data-target=\"#pushModal\"style='font-size: 20px;'>上架</button>")
+                        buttonCol.append(upBtn);
+
+                        $("#pushBtn").click(function(){
+                           let cop_Id = buttonCol.data("copId");
+                           let price=$("#pushPrice").val();
+                           console.log(cop_Id);
+                           $.ajax({
+                              async:true,
+                              url:"/push_copyright",
+                              type:"post",
+                              data:JSON.stringify({"cop_id": cop_Id,"price":price}),
+                              dataType:"json",
+                              contentType:"application/json",
+                              success:function(result){
+                                 console.log(result["status"]);
+                                 if(result["status"]=="ok"){
+                                    location.reload();
+                                    alert("上架成功");
+                                 }
+                                 if(result["status"]=="same_tag"){
+                                    alert("上架失败！tag相同！");
+                                 }
+                              },
+                              error:function(result){
+                                 console.log(result);
+                              }
+                           })
+                        })
+                     }
+                     row.append(dateCol,copIdCol,tagCol,ownerCol,numberCol,buttonCol);
+                     loadCount++;
+                     copBody.append(row);
+                     console.log(info);
+                  },
+                  error: function(result){
+                     console.log(result);
+                  }
+               });
+            }
+         }
+      </script>
+   </body>
+</html>

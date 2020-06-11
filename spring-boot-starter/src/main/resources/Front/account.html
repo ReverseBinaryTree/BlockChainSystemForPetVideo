@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>宠物视频网站用户管理系统</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--enable mobile device-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--fontawesome css-->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <!--bootstrap css-->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!--animate css-->
+    <link rel="stylesheet" href="css/animate-wow.css">
+    <!--main css-->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="css/slick.min.css">
+    <!--responsive css-->
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+<header id="header" class="top-head">
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-4 col-sm-12 left-rs">
+                    <div class="navbar-header">
+                        <button type="button" id="top-menu" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+
+                    </div>
+                    <form class="navbar-form navbar-left web-sh">
+                        <div class="form">
+                            <input type="text" class="form-control" placeholder="搜索你想要的宠物视频版权">
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-8 col-sm-12">
+                    <div class="right-nav">
+                        <div class="login-sr">
+                            <div class="login-signup">
+
+                            </div>
+                        </div>
+
+                        <div class="nav-b hidden-xs">
+                            <div class="nav-box">
+                                <ul>
+                                    <li><a href="howitworks.html">使用说明</a></li>
+                                    <li><a href="copyright_info.html">我的视频</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade lug" id="recharge" role="dialog">
+                    <div class="modal-dialog">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">请输入您要充值的金额</h4>
+                            </div>
+                            <div class="modal-body">
+
+
+                                <input type="text" id="input_private_key" placeholder="输入要充值的金额" style="font-size:20px;"/> <br>
+                                <button type="button" class="btn btn-dark" id="recharge_button" >充值</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/.container-fluid -->
+    </nav>
+</header>
+
+<div id="sidebar" class="top-nav">
+    <ul id="sidebar-nav" class="sidebar-nav">
+        <li><a href="#">Help</a></li>
+        <li><a href="howitworks.html">How it works</a></li>
+        <li><a href="#">chamb for Business</a></li>
+    </ul>
+</div>
+<div class="page-content-product">
+    <div class="main-product">
+        <div class="container">
+            <div class="row clearfix">
+                <div class="find-box">
+                    <h1>用户名：<span id="account_user_name_text"></span></h1>
+                    <br><h1>余额：<span id="account_user_balance_text"></span></h1>
+                    <br><br>
+                    <div style="text-align: center">
+                    <button class="btn btn-success"style="text-align: center;width:100px;height: 60px;font-size: 27px" id="recharge_turn" data-toggle="modal" data-target="#recharge">充值</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!--main js-->
+<script src="js/jquery-1.12.4.min.js"></script>
+<!--bootstrap js-->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrap-select.min.js"></script>
+<script src="js/slick.min.js"></script>
+<script src="js/wow.min.js"></script>
+<!--custom js-->
+<script src="js/custom.js"></script>
+<!-- refresh account message-->
+<script type="text/javascript">
+$.ajax({
+    url:"/get_account_info",
+    contentType:"application/json",
+    type:'post',
+    dataType:'json',
+    data:JSON.stringify({}),
+    success:function(result){
+        let info = result["info"];
+        $("#account_user_balance_text").text(info.balance);
+        $("#account_user_name_text").text(info.name);
+        console.log(result);
+    }
+})
+</script>
+<script type="text/javascript">
+    $("#recharge_button").click(function(){
+        $.ajax({
+            url:"/recharge",
+            contentType:"application/json",
+            type:'post',
+            dataType:'json',
+            data:JSON.stringify({"amount":$("#input_private_key").val()}),
+            success:function(result){
+                location.reload();
+                alert("充值成功");
+                console.log(result);
+            },
+            error: function (result) {
+                console.log(result);
+            }
+        })
+    })
+
+</script>
+</body>
+</html>
